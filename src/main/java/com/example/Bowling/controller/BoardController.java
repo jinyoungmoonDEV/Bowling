@@ -24,6 +24,11 @@ public class BoardController {
         return ResponseEntity.ok().body(boardService.findAll());
     }
 
+    @GetMapping("/board/{category}")
+    public ResponseEntity findByCategory(@PathVariable String category) {
+        return ResponseEntity.ok().body(boardService.findByCategory(category));
+    }
+
     @GetMapping("/board/{id}")
     public ResponseEntity findOneBoard(@PathVariable Long id){
         return ResponseEntity.ok().body(boardService.findOne(id));

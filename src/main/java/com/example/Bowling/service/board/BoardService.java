@@ -11,6 +11,7 @@ public interface BoardService {
     BoardEntity create(BoardDTO boardDTO);
     BoardEntity findOne(Long id);
     List<BoardEntity> findAll();
+    BoardEntity findByCategory(String category);
     BoardEntity update(BoardDTO boardDTO, Long id);
     String delete(Long id);
 }

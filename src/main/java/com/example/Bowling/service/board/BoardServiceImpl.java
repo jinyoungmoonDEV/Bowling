@@ -30,6 +30,11 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
+    public BoardEntity findByCategory(String category) {
+        return boardRepository.findByCategory(category);
+    }
+
+    @Override
     public BoardEntity update(BoardDTO boardDTO, Long id) {
         BoardEntity find = boardRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Board Does Not Exist"));
         BoardDTO change = find.toDTO();
