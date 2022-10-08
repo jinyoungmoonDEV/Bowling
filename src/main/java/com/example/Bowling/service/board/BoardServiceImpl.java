@@ -6,6 +6,8 @@ import com.example.Bowling.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -16,6 +18,7 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public BoardEntity create(BoardDTO boardDTO) {
+        boardDTO.setRegdate(Timestamp.valueOf(LocalDateTime.now()));
         return boardRepository.save(boardDTO.toEntity());
     }
 
@@ -40,6 +43,9 @@ public class BoardServiceImpl implements BoardService{
         BoardDTO change = find.toDTO();
         change.setTitle(boardDTO.getTitle());
         change.setContent(boardDTO.getContent());
+        change.setUpdatedate(Timestamp.valueOf(LocalDateTime.now()));
+        change.setImage(boardDTO.getImage());
+        change.setCategory(boardDTO.getCategory());
         return boardRepository.save(change.toEntity());
     }
 
