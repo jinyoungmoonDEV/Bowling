@@ -3,6 +3,7 @@ package com.example.Bowling.service.board;
 import com.example.Bowling.domain.dto.BoardDTO;
 import com.example.Bowling.domain.entity.BoardEntity;
 import com.example.Bowling.repository.BoardRepository;
+import com.example.Bowling.repository.ReplyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,8 @@ import java.util.List;
 public class BoardServiceImpl implements BoardService{
 
     private final BoardRepository boardRepository;
+
+    private final ReplyRepository replyRepository;
 
     @Override
     public BoardEntity create(BoardDTO boardDTO) {
