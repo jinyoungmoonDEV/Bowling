@@ -9,9 +9,9 @@ import java.util.List;
 @Service
 public interface BoardService {
     BoardEntity create(BoardDTO boardDTO);
-    BoardEntity findOne(Long id);
+    BoardEntity findOne(Integer id);
     List<BoardEntity> findAll();
     BoardEntity findByCategory(String category);
-    BoardEntity update(BoardDTO boardDTO, Long id);
-    String delete(Long id);
+    BoardEntity update(BoardDTO boardDTO, Integer id);
+    String delete(Integer id);
 }

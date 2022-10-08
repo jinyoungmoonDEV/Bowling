@@ -18,12 +18,14 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     public BoardEntity create(BoardDTO boardDTO) {
+
         boardDTO.setRegdate(Timestamp.valueOf(LocalDateTime.now()));
+
         return boardRepository.save(boardDTO.toEntity());
     }
 
     @Override
-    public BoardEntity findOne(Long id) {
+    public BoardEntity findOne(Integer id) {
         return boardRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Board Does Not Exist"));
     }
 
@@ -38,19 +40,22 @@ public class BoardServiceImpl implements BoardService{
     }
 
     @Override
-    public BoardEntity update(BoardDTO boardDTO, Long id) {
+    public BoardEntity update(BoardDTO boardDTO, Integer id) {
+
         BoardEntity find = boardRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Board Does Not Exist"));
         BoardDTO change = find.toDTO();
+
         change.setTitle(boardDTO.getTitle());
         change.setContent(boardDTO.getContent());
         change.setUpdatedate(Timestamp.valueOf(LocalDateTime.now()));
         change.setImage(boardDTO.getImage());
         change.setCategory(boardDTO.getCategory());
+
         return boardRepository.save(change.toEntity());
     }
 
     @Override
-    public String delete(Long id) {
+    public String delete(Integer id) {
         boardRepository.deleteById(id);
         return "Delete Success";
     }

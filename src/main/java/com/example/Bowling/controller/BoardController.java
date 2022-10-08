@@ -30,17 +30,17 @@ public class BoardController {
     }
 
     @GetMapping("/board/{id}")
-    public ResponseEntity findOneBoard(@PathVariable Long id){
+    public ResponseEntity findOneBoard(@PathVariable Integer id){
         return ResponseEntity.ok().body(boardService.findOne(id));
     }
 
     @PutMapping("/board/{id}")
-    public ResponseEntity updateBoard(@RequestBody BoardDTO boardDTO ,@PathVariable Long id){
+    public ResponseEntity updateBoard(@RequestBody BoardDTO boardDTO ,@PathVariable Integer id){
         return ResponseEntity.created(URI.create("/boards/board/update")).body(boardService.update(boardDTO, id));
     }
 
     @DeleteMapping("/board/{id}")
-    public ResponseEntity deleteBoard(@PathVariable Long id){
+    public ResponseEntity deleteBoard(@PathVariable Integer id){
         return ResponseEntity.ok().body(boardService.delete(id ));
     }
 }
