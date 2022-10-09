@@ -11,27 +11,30 @@ import java.sql.Timestamp;
 @Setter
 @Builder
 public class BoardDTO {
-    private Integer id;
+    private Integer id; //게시물 번호
 
-    private String title;
+    private String writer; //게시물 작성자
 
-    private String content;
+    private String title; //게시물 제목
+
+    private String content; //게시물 내용
 
     private Timestamp regdate; //생성 날짜
 
     private Timestamp updatedate; //수정 날짜
 
-    private Long view;
+    private Long view; //조회수
 
-    private String image;
+    private String image; //게시물 이미지 url
 
-    private String category;
+    private String category; //게시물 카테고리
 
     public BoardEntity toEntity() {
 
         BoardEntity boardEntity = BoardEntity.builder()
                 .id(id)
                 .title(title)
+                .writer(writer)
                 .content(content)
                 .regdate(regdate)
                 .updatedate(updatedate)

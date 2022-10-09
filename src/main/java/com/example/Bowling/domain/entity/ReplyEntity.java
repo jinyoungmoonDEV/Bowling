@@ -23,9 +23,9 @@ public class ReplyEntity {
 
     private Integer bno; //게시물 번호
 
-    private String writer;
+    private String writer; //댓글 작성자
     
-    private String content;
+    private String content; //댓글 내용
     
     private Timestamp regdate; //생성 날짜
     
