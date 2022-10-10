@@ -1,6 +1,7 @@
 package com.example.Bowling.service.board;
 
 import com.example.Bowling.domain.dto.BoardDTO;
+import com.example.Bowling.domain.dto.BoardDetailDTO;
 import com.example.Bowling.domain.entity.BoardEntity;
 import com.example.Bowling.repository.BoardRepository;
 import com.example.Bowling.repository.ReplyRepository;

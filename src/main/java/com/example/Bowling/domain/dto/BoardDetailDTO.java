@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class BoardDetailDTO {
     
-    private Integer bno; //게시물 번호
+    private Integer id; //게시물 번호
 
     private String writer; //게시물 작성자
 
